@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Page</title>
+    <style>
+         body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        }
+        .centered-image {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+        }
+        .centered-image img {
+            width: 70%; /* 이미지가 부모 요소의 너비를 따르도록 설정 */
+            height: auto; /* 높이는 비율을 유지하면서 자동으로 조절 */
+        }
+        .toolbar {
+            display: flex;
+            justify-content: flex-start;;
+            align-items: center;
+            background-color: white;
+            color: white;
+            padding: 10px ;
+        }
+        .toolbar .col + .col {
+        margin-left: 80px;
+        margin-right: 100px;
+        }
+        .toolbar .col:last-child {
+        margin-right: -8%; 
+        }
+        .toolbar a:hover {
+            text-decoration: underline;
+        }
+        .toolbar .logo {
+            font-size: 24px;
+            margin-right: auto;
+        }
+        #dropdownMenu {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        #dropdownMenu a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        #dropdownMenu a:hover {
+            background-color: #ddd;
+        }
+        a {
+            text-decoration: none; /* 밑줄 제거 */
+            cursor: pointer; /* 선택 시 마우스 커서를 포인터로 변경 (선택 사항) */
+        }
+    </style>
+</head>
+<body style= "background-color: rgba(225, 233, 245)">
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdownMenu");
+            dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+        }
+        // 외부 클릭을 감지하고 드롭다운 메뉴를 닫는 코드
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "block") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdownMenu");
+            dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+        }
+        // 외부 클릭을 감지하고 드롭다운 메뉴를 닫는 코드
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "block") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+    <div>
+        <div class = "toolbar" align = "center">
+            <div class = "col">
+                <a href ="/"><img src= "/static/image/SOLAR-B 로고.png" alt="Search" width="120"></a>
+            </div>
+            <div class = "col">
+                <a href="/#section2" style="color: rgba(0, 43, 91);">소개</a>
+            </div>
+            <div class = "col">
+                <a href="/auto_recommend"> <font style = "color : rgba(0, 43, 91);">SOLAR-B 추천상품</font></a>
+            </div>
+            <div class = "col">
+                <a href="/form"> <font style = "color : rgba(0, 43, 91);">30초 안에 맞춤상품 찾기</font></a>
+            </div>
+            <div class="col">
+                <a href="#" onclick="toggleDropdown()" style="color: rgba(0, 43, 91);">더보기</a>
+                <div id="dropdownMenu">
+                    <a href="/mz_detail">청년도약계좌</a>
+                    <a href="/deposit_insurance">저축성보험</a>
+                    <a href="/insurance">4세대 실손의료보험</a>
+                    <a href="/formResult_Housing">주택청약</a>
+                </div>
+            </div>
+            <div class = "col">
+                <a href="mz_detail"><img src= "/static/image/로그인.png" alt="Search" width="100"></a>
+            </div>
+        </div>
+    </div>
+    <div class="centered-image">
+        <img src="{{ image_url }}" alt="Test Image" >
+    </div>
+</body>
+</html>

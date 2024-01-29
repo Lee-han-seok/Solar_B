@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>    
+    <title>Document</title>
+    <style>
+        .centered-text {
+            /* padding-top: 20px; */
+            /* line-height: 10px; 폰트 높이에 맞게 조절 */
+            color:  rgba(0, 43, 91);
+            display: inline-block;
+            font-size: 40px;
+            vertical-align: middle;
+             }
+    .rounded-box {
+            position: relative;
+            width: 900px;
+            height: 270px;
+            background-color: #fffdfd;
+            border-radius: 10px;
+            border: 0.5px solid rgba(0, 43, 91, 0.2);
+            z-index: 1;
+        }
+
+        .rounded-box-right {
+            position: relative;
+            width: 370px;
+            height: 150px;
+            background-color: #fffdfd;
+            border-radius: 10px;
+            z-index: 1;
+            margin-left: 55%;
+            margin-top: -12%;
+            align-items: center;
+            display: flex;
+        }
+
+        .rounded-box-small {
+            position: relative;
+            width: 100px;
+            height: 50px;
+            background-color:  #fffdfd;
+            border-radius: 10px;
+            /* border: 0.5px solid rgba(0, 43, 91, 0.2); */
+            z-index: 1;
+            margin-left: 5%;
+            margin-top: 5%;
+        }
+
+        .rounded-box-bottom {
+            position: relative;
+            width: 900px;
+            height: 120px;
+            background-color:  #fffdfd;
+            border-radius: 10px;
+            border: 0.5px solid rgba(0, 43, 91, 0.2);
+            z-index: 1;
+            margin-top: 1%;
+            margin-bottom : 3%;
+        }
+
+        .v-line2{
+            border-left:dashed 3px rgba(0, 43, 91, 0.3); 
+            top : 44%;
+            height:90%;
+            left: 2.5%;
+            position: relative;
+            }
+
+        .container_flex {
+            display: flex;
+            /* 추가적인 스타일링을 원하는 경우 여기에 추가하세요 */
+        }
+        font {
+            vertical-align: middle;
+        }
+        .rounded-box-btn {
+            position: relative;
+            width: 250px;
+            height: 60px;
+            background-color: rgba(234, 84, 87);
+            border-radius: 20px;
+            border: 0.5px solid rgba(234, 84, 87);
+            z-index: 1;
+        }
+        .transparent-button {
+            position: relative;
+      background-color: rgba(234, 84, 87); /* 배경색을 투명하게 설정 */
+      border: 1px solid transparent; /* 테두리를 투명하게 설정 */
+      color: #000; /* 텍스트 색상을 원하는 색상으로 설정 */
+      /* padding: 60px; */
+      width: 250px;
+      height: 60px;
+      border-radius: 20px;
+      cursor: pointer; /* 커서 스타일 변경 (선택사항) */
+      margin-top: -4%;
+    }
+    .toolbar {
+            display: flex;
+            justify-content: flex-start;;
+            align-items: center;
+            background-color: white;
+            color: white;
+            padding: 10px ;
+        }
+        .toolbar .col + .col {
+        margin-right: 0px;
+        }
+        /* .toolbar .col:last-child {
+        margin-right: -10%; 
+        } */
+        .toolbar a:hover {
+            text-decoration: underline;
+        }
+        .toolbar .logo {
+            font-size: 24px;
+            margin-right: auto;
+        }
+        a {
+            text-decoration: none; /* 밑줄 제거 */
+            cursor: pointer; /* 선택 시 마우스 커서를 포인터로 변경 (선택 사항) */
+        }
+        #dropdownMenu {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        #dropdownMenu a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        #dropdownMenu a:hover {
+            background-color: #ddd;
+        }
+
+
+    </style>
+</head>
+<body style= "background-color: rgba(230, 235, 242)">
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdownMenu");
+            dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+        }
+        // 외부 클릭을 감지하고 드롭다운 메뉴를 닫는 코드
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "block") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+    <div>
+        <div class = "toolbar" align = "center">
+            <div class = "col">
+                <a href ="/"><img src= "/static/image/SOLAR-B 로고.png" alt="Search" width="120"></a>
+            </div>
+            <div class = "col">
+                <a href="/#section2" style="color: rgba(0, 43, 91);">소개</a>
+            </div>
+            <div class = "col">
+                <a href="/auto_recommend"> <font style = "color : rgba(0, 43, 91);">SOLAR-B 추천상품</font></a>
+            </div>
+            <div class = "col">
+                <a href="/form"> <font style = "color : rgba(0, 43, 91);">30초 안에 맞춤상품 찾기</font></a>
+            </div>
+            <div class="col">
+                <a href="#" onclick="toggleDropdown()" style="color: rgba(0, 43, 91);">더보기</a>
+                <div id="dropdownMenu">
+                    <a href="/mz_detail">청년도약계좌</a>
+                    <a href="/deposit_insurance">저축성보험</a>
+                    <a href="/insurance">4세대 실손의료보험</a>
+                    <a href="/formResult_Housing">주택청약</a>
+                </div>
+            </div>
+            <div class = "col">
+                <a href="mz_detail"><img src= "/static/image/로그인.png" alt="Search" width="100"></a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class ="row" align = "center">
+            <div class ="col-sm" align = "center">
+                <br>
+                <img src ="/static/image/청년도약계좌.png" alt="houses" class="img-fluid" width="60">
+                <div class ="centered-text"><b>청년도약계좌</b></div>
+            </div>
+        </div>
+        <div class ="row" align = "center">
+            <div class ="col-sm" align = "center">
+                <br>
+                <font size = 3 style="color: rgba(0, 43, 91)" >안녕하세요! 🌟 청년 여러분을 위한 멋진 기회, '청년도약계좌'에 대해 알려드릴게요! 
+                    <br> 이 계좌는 청년들이 경제적으로 독립하고, 더 밝은 미래를 설계할 수 있도록 도와주는 정책이랍니다.
+                    <br> 아래는 {{myname}}님 맞춤형으로 SOLAR-B가 추천하는 청년도약계좌 상품입니다.
+                    ✨<br>
+                    </font>
+                <br>
+            </div>
+            <br>
+        </div>
+
+        <!-- 1번 -->
+        <div class = "row">
+            <div class = "col" align = "center">
+                <div class = "rounded-box">
+                    <div class = "col">
+                        <font size = 2 style="color: rgba(121, 141, 163)">* 보장금리란? : 사용자님이 선택하신 우대사항에따라 적용된 금리입니다. </font>
+                    </div>
+                    <br>
+                    <div class="row">
+                        
+                        <div class="col-auto" >
+                            <img src= {{df_list_rate[0][4]}} alt="Image 1" class="img-fluid" width="70">
+                        </div>
+                        <div class = "col-sm-8" align = "left">
+                            <font size = 5>{{df_list_rate[0][0][:2]}} 청년도약계좌</font><br>
+                            <font size = 2 style="color: rgba(159, 175, 193)">@{{df_list_rate[0][0]}}</font>
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <div class="container_flex">
+                            <br>
+                            
+                            <div class = "rounded-box-small">
+                                <font size = 4 style="color: rgba(0, 43, 91)"><b>기본금리</b></font><br><br>
+                                <font size = 4 style = "color : rgba(0, 43, 91)">{{df_list_rate[0][1]}}%</font>
+                            </div>
+                            <div class = "v-line2"></div>
+                            <div class = "rounded-box-small">
+                                <font size = 4 style="color: rgba(0, 43, 91)"><b>보장금리</b></font><br>
+                                <br><font size = 4 style = "color : rgba(234, 84, 87)"><b>{{df_list_rate[0][2]}}%</b></font>
+                            </div>
+                            <div class = "v-line2"></div>
+                            <div class = "rounded-box-small">
+                                <font size = 4 style="color: rgba(0, 43, 91)"><b>최고금리</b></font><br>
+                                <br><font size = 4 style = "color : rgba(0, 43, 91)">{{df_list_rate[0][3]}}%</font>
+                            </div>
+                        </div>
+                        <div class ="container_flex">
+                            <div class = "rounded-box-right" align = "left">     
+                                <div>
+                                    {%for s in df_pre_ch[0][0].split("\n")%}
+                                        {% if s != "" %}
+                                            <font size = 2 >* {{s}}</font><br>
+                                        {%endif%}
+                                    {%endfor%}
+                                </div>                  
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "row" align = "center">
+            <div class = "col">
+                <div class = "rounded-box-bottom">
+                    <div class = "container_flex">
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>마케팅동의</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[0][0]}}</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (1).png" width="50">
+                        </div>
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>자동이체</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[0][1]}}</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (2).png" width="50">
+                        </div>
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>카드실적</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[0][2]}}</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (3).png" width="50">
+                        </div>
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>최초거래</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[0][3]}}</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (4).png" width="50">
+                        </div>
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>주택청약</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[0][4]}}</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (5).png" width="50">
+                        </div>
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>급여이체</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[0][5]}}</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (6).png" width="50">
+                        </div>
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>기타</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[0][6]}}</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (7).png" width="50">
+                        </div>
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>소득우대</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[0][7]}}%</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (8).png" width="50">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    
+
+        <!-- 2번 -->
+        <div class = "row">
+            <div class = "col" align = "center">
+                <div class = "rounded-box">
+                    <div class = "col">
+                        <font size = 2 style="color: rgba(121, 141, 163)">* 보장금리란? : 사용자님이 선택하신 우대사항에따라 적용된 금리입니다. </font>
+                    </div>
+                    <br>
+                    <div class="row">
+                        
+                        <div class="col-auto" >
+                            <img src={{df_list_rate[1][4]}} alt="Image 1" class="img-fluid" width="70">
+                        </div>
+                        <div class = "col-sm-8" align = "left">
+                            <font size = 5>{{df_list_rate[1][0][:2]}} 청년도약계좌</font><br>
+                            <font size = 2 style="color: rgba(159, 175, 193)">@{{df_list_rate[1][0]}}</font>
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <div class="container_flex">
+                            <br>
+                            
+                            <div class = "rounded-box-small">
+                                <font size = 4 style="color: rgba(0, 43, 91)"><b>기본금리</b></font><br><br>
+                                <font size = 4 style = "color : rgba(0, 43, 91)">{{df_list_rate[1][1]}}%</font>
+                            </div>
+                            <div class = "v-line2"></div>
+                            <div class = "rounded-box-small">
+                                <font size = 4 style="color: rgba(0, 43, 91)"><b>보장금리</b></font><br>
+                                <br><font size = 4 style = "color : rgba(234, 84, 87)"><b>{{df_list_rate[1][2]}}%</b></font>
+                            </div>
+                            <div class = "v-line2"></div>
+                            <div class = "rounded-box-small">
+                                <font size = 4 style="color: rgba(0, 43, 91)"><b>최고금리</b></font><br>
+                                <br><font size = 4 style = "color : rgba(0, 43, 91)">{{df_list_rate[1][3]}}%</font>
+                            </div>
+                        </div>
+                        <div class ="container_flex">
+                            <div class = "rounded-box-right" align = "left">     
+                                <div>
+                                    {%for s in df_pre_ch[1][0].split("\n")%}
+                                    {% if s != "" %}
+                                        <font size = 2 >* {{s}}</font><br>
+                                    {%endif%}
+                                    {%endfor%}
+                                </div>                  
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "row" align = "center">
+            <div class = "col">
+                <div class = "rounded-box-bottom">
+                    <div class = "container_flex">
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>마케팅동의</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[1][0]}}</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (1).png" width="50">
+                        </div>
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>자동이체</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[1][1]}}</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (2).png" width="50">
+                        </div>
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>카드실적</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[1][2]}}</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (3).png" width="50">
+                        </div>
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>최초거래</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[1][3]}}</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (4).png" width="50">
+                        </div>
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>주택청약</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[1][4]}}</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (5).png" width="50">
+                        </div>
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>급여이체</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[1][5]}}</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (6).png" width="50">
+                        </div>
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>기타</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[1][6]}}</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (7).png" width="50">
+                        </div>
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>소득우대</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[1][7]}}%</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (8).png" width="50">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <!-- 3번 -->
+         <div class = "row">
+            <div class = "col" align = "center">
+                <div class = "rounded-box">
+                    <div class = "col">
+                        <font size = 2 style="color: rgba(121, 141, 163)">* 보장금리란? : 사용자님이 선택하신 우대사항에따라 적용된 금리입니다. </font>
+                    </div>
+                    <br>
+                    <div class="row">
+                        
+                        <div class="col-auto" >
+                            <img src={{df_list_rate[2][4]}} alt="Image 1" class="img-fluid" width="70">
+                        </div>
+                        <div class = "col-sm-8" align = "left">
+                            <font size = 5>{{df_list_rate[2][0][:2]}} 청년도약계좌</font><br>
+                            <font size = 2 style="color: rgba(159, 175, 193)">@{{df_list_rate[2][0]}}</font>
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <div class="container_flex">
+                            <br>
+                            
+                            <div class = "rounded-box-small">
+                                <font size = 4 style="color: rgba(0, 43, 91)"><b>기본금리</b></font><br><br>
+                                <font size = 4 style = "color : rgba(0, 43, 91)">{{df_list_rate[2][1]}}%</font>
+                            </div>
+                            <div class = "v-line2"></div>
+                            <div class = "rounded-box-small">
+                                <font size = 4 style="color: rgba(0, 43, 91)"><b>보장금리</b></font><br>
+                                <br><font size = 4 style = "color : rgba(234, 84, 87)"><b>{{df_list_rate[2][2]}}%</b></font>
+                            </div>
+                            <div class = "v-line2"></div>
+                            <div class = "rounded-box-small">
+                                <font size = 4 style="color: rgba(0, 43, 91)"><b>최고금리</b></font><br>
+                                <br><font size = 4 style = "color : rgba(0, 43, 91)">{{df_list_rate[2][3]}}%</font>
+                            </div>
+                        </div>
+                        <div class ="container_flex">
+                            <div class = "rounded-box-right" align = "left">     
+                                <div>
+                                    {%for s in df_pre_ch[2][0].split("\n")%}
+                                    {% if s != "" %}
+                                        <font size = 2 >* {{s}}</font><br>
+                                    {%endif%}
+                                    {%endfor%}
+                                </div>                  
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "row" align = "center">
+            <div class = "col">
+                <div class = "rounded-box-bottom">
+                    <div class = "container_flex">
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>마케팅동의</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[2][0]}}</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (1).png" width="50">
+                        </div>
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>자동이체</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[2][1]}}</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (2).png" width="50">
+                        </div>
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>카드실적</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[2][2]}}</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (3).png" width="50">
+                        </div>
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>최초거래</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[2][3]}}</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (4).png" width="50">
+                        </div>
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>주택청약</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[2][4]}}</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (5).png" width="50">
+                        </div>
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>급여이체</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[2][5]}}</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (6).png" width="50">
+                        </div>
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>기타</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[2][6]}}</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (7).png" width="50">
+                        </div>
+                        <div class = "col">
+                            <font size = 3 style = "color : rgba(234, 84, 87)"><b>소득우대</b></font><br>
+                            <font size = 3 style = "color : rgba(0, 43, 91)"><b>{{df_all_pre[2][7]}}%</b></font><br>
+                            <img src = "/static/image/청년도약계좌 (8).png" width="50">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col" align = "center">
+                <form action = "/mz_detail" method="get">
+                    <button class = "transparent-button"  style="line-height:40%">
+                        <font size = 5 style="color: rgba(255, 255, 255)">더 알아보기</font>    
+                    </button>  
+                </form>
+            </div>
+        </div>
+        
+        <div class ="row" align = "center">
+                 <br>
+        </div>
+</div>       
+
+</body>
+</html>

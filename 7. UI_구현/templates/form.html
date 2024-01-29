@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .bar {
+            text-align: center; /* 텍스트를 수평으로 가운데 정렬합니다. */
+            /*line-height: 100vh;  수직으로도 가운데 정렬합니다. */
+        }
+
+        .rounded-box {
+            width: 120px; /* 네모의 너비 */
+            height: 40px; /* 네모의 높이 */
+            background-color: rgba(172, 187, 204); /* 네모의 배경색 */
+            border-radius: 15px; /* 네모의 모서리를 둥글게 만듭니다. */
+            text-align: center; /* 텍스트를 수평으로 가운데 정렬합니다. */
+            line-height: 40px; /* 텍스트를 수직으로 가운데 정렬합니다. */
+            margin-left: auto; /* 왼쪽 여백을 자동으로 설정하여 오른쪽으로 이동합니다. */
+            margin-right: auto; /* 오른쪽 여백을 20px로 설정합니다. */
+        }
+        .text-container {
+            display: flex; /* 텍스트를 나란히 배치하기 위해 Flexbox 사용 */
+        }
+
+        .text-box {
+            margin-right: 50px; /* 각 텍스트 박스 사이의 여백 설정 */
+        }
+
+        .text-box2 {
+            margin-right: 2px; /* 각 텍스트 박스 사이의 여백 설정 */
+        }
+        .rounded-box-hide {
+            position: relative;
+            width: 350px;
+            height: 200px;
+            background-color:  rgb(230, 235, 242);
+            z-index: 1;
+            vertical-align: middle;
+            display: inline-block;
+        }
+        .rounded-box-hide2 {
+            position: relative;
+            width: 500px;
+            height: 200px;
+            background-color:  rgb(230, 235, 242);
+            z-index: 1;
+            vertical-align: middle;
+            display: inline-block;
+            margin-right: 2px;
+        }
+        .rounded-box-hide3 {
+            position: relative;
+            width: 250px;
+            height: 200px;
+            background-color:  rgb(230, 235, 242);
+            z-index: 1;
+            vertical-align: middle;
+            display: inline-block;
+            margin-right: 2px;
+        }
+        .rounded-box-sex {
+            position: relative;
+            width: 120px;
+            height:100px;
+            background-color:  rgba(255, 255, 255);
+            border: 0.5px solid rgba(0, 43, 91, 0.2);
+            z-index: 1;
+            vertical-align: middle; 
+            display: inline-block;
+            margin-right: 50px;
+        }
+        .rounded-box-sex2 {
+            position: relative;
+            width: 120px;
+            height:100px;
+            background-color:  rgba(255, 255, 255);
+            border: 0.5px solid rgba(0, 43, 91, 0.2);
+            z-index: 1;
+            vertical-align: middle; 
+            display: inline-block;
+            /* margin-right: 50px; */
+        }
+        .rounded-box-btn {
+            position: absolute;
+            bottom: -8%; 
+            right: 90px; /* 원하는 위치의 왼쪽 좌표를 설정하세요. */
+            width: 200px;
+            height: 60px;
+            /* left: 30%; */
+            background-color: rgba(234, 84, 87);
+            border-radius: 20px;
+            border: 0.5px solid rgba(234, 84, 87);
+            z-index: 1;
+        }
+        .transparent-button {
+            background-color: transparent; /* 배경색을 투명하게 설정 */
+            border: 1px solid transparent; /* 테두리를 투명하게 설정 */
+            color: #000; /* 텍스트 색상을 원하는 색상으로 설정 */
+            padding: 10px;
+            cursor: pointer; /* 커서 스타일 변경 (선택사항) */
+        }
+        .box img {
+            display: block; /* 이미지를 블록 레벨로 설정 */
+            margin: 0 auto; /* 가로 가운데 정렬을 위해 margin 사용 */
+        }
+        .toolbar {
+            display: flex;
+            justify-content: flex-start;;
+            align-items: center;
+            background-color: white;
+            color: white;
+            padding: 10px ;
+        }
+        .toolbar a:hover {
+            text-decoration: underline;
+        }
+        .toolbar .logo {
+            font-size: 24px;
+            margin-right: auto;
+        }
+        #dropdownMenu {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        #dropdownMenu a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        #dropdownMenu a:hover {
+            background-color: #ddd;
+        }
+        a {
+            text-decoration: none; /* 밑줄 제거 */
+            cursor: pointer; /* 선택 시 마우스 커서를 포인터로 변경 (선택 사항) */
+        }
+        .toolbar .col + .col {
+        margin-left: 80px;
+        margin-right: 100px;
+        }
+        .toolbar .col:last-child {
+        margin-right: -8%; 
+        }
+        
+ 
+    </style>
+    <title>Document</title>
+</head>
+<body style= "background-color: rgba(230, 235, 242)">
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdownMenu");
+            dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+        }
+        // 외부 클릭을 감지하고 드롭다운 메뉴를 닫는 코드
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "block") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+    <div class = "toolbar" align = "center">
+        <div class = "col">
+            <a href ="/"><img src= "/static/image/SOLAR-B 로고.png" alt="Search" width="120"></a>
+        </div>
+        <div class = "col">
+            <a href="/#section2" style="color: rgba(0, 43, 91);">소개</a>
+        </div>
+        <div class = "col">
+            <a href="/auto_recommend"> <font style = "color : rgba(0, 43, 91);">SOLAR-B 추천상품</font></a>
+        </div>
+        <div class = "col">
+            <a href="/form"> <font style = "color : rgba(0, 43, 91);">30초 안에 맞춤상품 찾기</font></a>
+        </div>
+        <div class="col">
+            <a href="#" onclick="toggleDropdown()" style="color: rgba(0, 43, 91);">더보기</a>
+            <div id="dropdownMenu">
+                <a href="/mz_detail">청년도약계좌</a>
+                <a href="/deposit_insurance">저축성보험</a>
+                <a href="/insurance">4세대 실손의료보험</a>
+                <a href="/formResult_Housing">주택청약</a>
+            </div>
+        </div>
+        <div class = "col">
+            <a href="mz_detail"><img src= "/static/image/로그인.png" alt="Search" width="100"></a>
+        </div>
+    </div>
+    <br>
+    <form action = "/purpose" method="get">
+        <div class="container">
+            <div class = "row" align = "center">
+                <div class="bar">
+                <img src ="/static/image/진행바_1.png" alt="bar" class="bar" width="400">
+                </div>
+                
+                <p> <font size = 3 style="color: rgba(0, 43, 91)" >잘 오셨어요! 안전한 금융 관리를 위해 저축 또한 반드시 필요해요!! <br>간단한 답변으로 30초만에 맞춤 상품을 추천받아보세요!</font></p>
+                <div class = "q1" align = "center"  style="line-height:100%">
+                    <br>
+                        <font size = 5 style="color: rgba(0, 43, 91)" ><b>고객님의 기본정보를 입력해주세요</b></font>
+                </div>
+                <img src ="/static/image/점선.png" alt="dotted" class="dot" width="600">
+            </div>
+
+            <div style = "background-color: #E6EBF2; display: flex; justify-content: space-around;" align = "center">
+                <div class="rounded-box-hide3">
+                </div>    
+
+                <div class="rounded-box-hide">
+                    <div class = "row" align = "left">
+                        <br>
+                        <div class="text-container">
+                            <div class="text-box">
+                                <div class = "rounded-box">
+                                <font size = 4.7 style="color: rgba(0, 43, 91)" ><b>이름</b></font>
+                                </div>
+                            </div>
+                            <div class="text-box">
+                                <input type = "text" name = "myname"  size="10">  님<br><br>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="text-container">
+                            <div class="text-box">
+                                <div class = "rounded-box">
+                                <font size = 4.7 style="color: rgba(0, 43, 91)" ><b>나이</b></font>
+                                </div>
+                            </div>
+                            <div class="text-box">
+                                <input type = "number" name = "myage" min = "0" max = "120"  size="15">  세<br>
+                            </div>       
+                        </div>
+                    </div>
+                </div>
+  
+
+                <div class="rounded-box-hide2">
+                    <div class = "row" align = "center">
+                        <br>
+                        <div class="text-container">
+                            <div class="text-box">
+                                <div class = "rounded-box">
+                                    <font size = 4.7 style="color: rgba(0, 43, 91)" ><b>성별</b></font>
+                                </div>
+                            </div>
+                            <div class="text-box">
+                                <div class = "rounded-box-sex2">
+                                    <input type = "radio" name = "gender" value = "남" ><label>남</label><br>
+                                    <img src = "/static/image/남성.png" alt="Image 1" class="img-fluid" width="60">
+                                </div>
+                                <div class = "rounded-box-sex2">
+                                    <input type = "radio" name = "gender" value = "여"><label>여</label><br>
+                                    <img src = "/static/image/여성.png" alt="Image 1" class="img-fluid" width="60">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="rounded-box-hide3">
+                </div>    
+                
+            </div>    
+
+            <div class = "row" align = "center">
+                <div class = "q1" align = "center"  style="line-height:100%">
+                    <br>
+                        <font size = 5 style="color: rgba(0, 43, 91)" ><b>아래 조건에 해당하거나 관심있는 분야를 선택해주세요 (중복가능)</b></font>
+                </div>
+                <img src ="/static/image/점선.png" alt="dotted" class="dot" width="600">
+            </div>
+
+
+            <div class = "row"  align = "center">
+                <span class = "col">
+                    <br>
+                </span>
+                <div class = "rounded-box-sex">
+                    <input type = "checkbox" name = "hobby" value = "직장인"><label>직장인</label><br>
+                    <img src = "/static/image/직장인.png" alt="Image 1" class="img-fluid" width="60">
+                </div>
+                <div class = "rounded-box-sex">
+                    <input type = "checkbox" name = "hobby" value = "반려인"><label>반려인</label><br>
+                    <img src = "/static/image/반려인.png" alt="Image 1" class="img-fluid" width="60">
+                </div>
+                <div class = "rounded-box-sex">
+                    <input type = "checkbox" name = "hobby" value = "청년"><label>청년</label><br>
+                    <img src = "/static/image/청년.png" alt="Image 1" class="img-fluid" width="60">
+                </div><br><br>
+                <div class = "rounded-box-sex">
+                    <input type = "checkbox" name = "hobby" value = "신혼"><label>신혼</label><br>
+                    <img src = "/static/image/신혼.png" alt="Image 1" class="img-fluid" width="60">
+                </div>
+                <div class = "rounded-box-sex">
+                    <input type = "checkbox" name = "hobby" value = "여행"><label>여행</label><br>
+                    <img src = "/static/image/여행.png" alt="Image 1" class="img-fluid" width="60">
+                </div>
+                <div class = "rounded-box-sex">
+                    <input type = "checkbox" name = "hobby" value = "환경보호"><label>환경보호</label><br>
+                    <img src = "/static/image/환경보호.png" alt="Image 1" class="img-fluid" width="60">
+                </div>
+                <div class = "rounded-box-sex">
+                    <input type = "checkbox" name = "hobby" value = "해당사항없음"><label>해당사항없음</label><br>
+                    <img src = "/static/image/해당사항없음.png" alt="Image 1" class="img-fluid" width="60">
+                </div>            
+            </div>
+            <div class ="row" >
+                <br>
+                <div class="col" align="center" >
+                    <button class = "transparent-button">
+                        <div class="rounded-box-btn"  style="line-height:70%">
+                                <br><br><br>
+                                <font size = 4.7 style="color: rgba(255, 255, 255)">다음</font>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+
+
+        </div>        
+    </form>
+</body>
+</html>

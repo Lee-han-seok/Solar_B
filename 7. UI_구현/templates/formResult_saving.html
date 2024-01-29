@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>    
+    <title>Document</title>
+    <style>
+        .rounded-box {
+            position: relative;
+            width: 1230px;
+            height: 450px;
+            left: 2%;
+            background-color: #fffdfd;
+            border-radius: 20px;
+            border: 0.5px solid rgba(0, 43, 91, 0.2);
+            z-index: 1;
+        }
+
+        .rounded-box-big {
+            position: relative;
+            width: 200px;
+            height: 50px;
+            left :5%;
+            background-color:rgb(236, 234, 234);
+            border-radius: 20px;
+            /* border: 0.5px solid rgb(214, 214, 214); */
+        }
+
+        .rounded-box-small {
+            position: relative;
+            width: 110px;
+            height: 40px;
+            top : 10%;
+            left :2%;
+            background-color: rgba(0, 43, 91, 0.7);
+            border-radius: 30px;
+            border: 0.5px solid rgba(0, 43, 91, 0.2);
+        }
+        .rounded-box-small2 {
+            position: relative;
+            width: 80px;
+            height: 40px;
+            left: 60%;
+            bottom : 70%;
+            background-color: rgb(236, 234, 234);
+            border-radius: 30px;
+            border: 0.5px solid rgb(236, 234, 234);
+        }
+        .rounded-box-more {
+            position: relative;
+            width: 90px;
+            height: 25px;
+            top : 50%;
+            right: 10%;
+            background-color: rgba(0, 43, 91);
+            border-radius: 30px;
+            border: 0.5px solid rgba(0, 43, 91, 0.2);
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+        .v-line{
+        border-left:dashed 3px rgba(0, 43, 91, 0.3); 
+        top : 15%;
+        height:80%;
+        left: 32%;
+        position: absolute;
+        }
+        .v-line2{
+        border-left:dashed 3px rgba(0, 43, 91, 0.3); 
+        top : 15%;
+        height:80%;
+        right: 33%;
+        position: absolute;
+        }
+        .v-line-s{
+        border-left:dashed 3px rgba(0, 43, 91, 0.3); 
+        top : 28%;
+        height:28%;
+        left: 17.5%;
+        position: absolute;
+        }
+        .v-line-s1{
+        border-left:dashed 3px rgba(0, 43, 91, 0.3); 
+        top : 28%;
+        height:28%;
+        left: 50%;
+        position: absolute;
+        }
+        .v-line-s2{
+        border-left:dashed 3px rgba(0, 43, 91, 0.3); 
+        top : 28%;
+        height:28%;
+        left: 83%;
+        position: absolute;
+        }
+        .prefer_box{
+            position: relative;
+            width: 350px;
+            height: 100px;
+            background-color:  rgb(236, 234, 234);
+            border-radius: 30px;
+            left : 5%;
+        }
+        .prefer_box_name{
+            position: relative;
+            width: 120px;
+            height: 30px;
+            background-color:  rgb(236, 132, 134);
+            border-radius: 30px;
+            top: -10%;
+        }
+        .rounded-box-small_s {
+            position: relative;
+            width: 100px;
+            height: 40px;
+            top : 10%;
+            left :2%;
+            background-color: rgba(0, 43, 91, 0.7);
+            border-radius: 30px;
+            border: 0.5px solid rgba(0, 43, 91, 0.2);
+        }
+        .rounded-box-small2_s {
+            position: relative;
+            width: 90px;
+            height: 40px;
+            left: 53%;
+            bottom : 70%;
+            background-color: rgb(236, 234, 234);
+            border-radius: 30px;
+            border: 0.5px solid rgb(236, 234, 234);
+        }
+        a {
+            text-decoration: none; /* 밑줄 제거 */
+            cursor: pointer; /* 선택 시 마우스 커서를 포인터로 변경 (선택 사항) */
+        }
+        #dropdownMenu {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        #dropdownMenu a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        #dropdownMenu a:hover {
+            background-color: #ddd;
+        }
+
+        .toolbar {
+            display: flex;
+            justify-content: flex-start;;
+            align-items: center;
+            background-color: white;
+            color: white;
+            padding: 10px ;
+        }
+        .toolbar .col + .col {
+        margin-right: 0px;
+        }
+        .toolbar .col:last-child {
+        margin-right: 0%; 
+        }
+        .toolbar a:hover {
+            text-decoration: underline;
+        }
+        .toolbar .logo {
+            font-size: 24px;
+            margin-right: auto;
+        }
+
+    </style>
+</head>
+
+<body style= "background-color: rgba(230, 235, 242)">
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdownMenu");
+            dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+        }
+        // 외부 클릭을 감지하고 드롭다운 메뉴를 닫는 코드
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "block") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+    <div>
+        <div class = "toolbar" align = "center">
+            <div class = "col">
+                <a href ="/"><img src= "/static/image/SOLAR-B 로고.png" alt="Search" width="120"></a>
+            </div>
+            <div class = "col">
+                <a href="/#section2" style="color: rgba(0, 43, 91);">소개</a>
+            </div>
+            <div class = "col">
+                <a href="/auto_recommend"> <font style = "color : rgba(0, 43, 91);">SOLAR-B 추천상품</font></a>
+            </div>
+            <div class = "col">
+                <a href="/form"> <font style = "color : rgba(0, 43, 91);">30초 안에 맞춤상품 찾기</font></a>
+            </div>
+            <div class="col">
+                <a href="#" onclick="toggleDropdown()" style="color: rgba(0, 43, 91);">더보기</a>
+                <div id="dropdownMenu">
+                    <a href="/mz_detail">청년도약계좌</a>
+                    <a href="/deposit_insurance">저축성보험</a>
+                    <a href="/insurance">4세대 실손의료보험</a>
+                    <a href="/formResult_Housing">주택청약</a>
+                </div>
+            </div>
+            <div class = "col">
+                <a href="mz_detail"><img src= "/static/image/로그인.png" alt="Search" width="100"></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 적금 -->
+    <div class = "container">
+        <div class="row" >
+            <div class="col" align="center" >
+                <img src="/static/image/적금이미지.png" alt="Image 1" class="img-fluid" width="50">
+                <font size = 6 style="color: rgba(0, 43, 91)" >적금</font>
+            </div>
+        </div>
+        <br>
+        <div class="row" >
+            {%if income_client== "네"%}
+                <div class="col" align="center" >
+                    <font size = 3 style="color: rgba(0, 43, 91)" >안녕하세요! 🌟 정기적금 상품은 정해진 기간동안 일정 금액을 꾸준히 납부하며 이자수익을 받을 수 있는 저축 방식으로</font><br>
+                    <font size = 3 style="color: rgba(234, 84, 87)" ><b>‘목돈 만들기’</b></font>
+                    <font size = 3 style="color: rgba(0, 43, 91)" >에 적합합니다. 매달 규칙적으로 납부하는 </font>
+                    <font size = 3 style="color: rgba(234, 84, 87)" >‘정액’</font>
+                    <font size = 3 style="color: rgba(0, 43, 91)" >방식과 자유롭게 납부하는</font> 
+                    <font size = 3 style="color: rgba(234, 84, 87)" >‘자유’</font>
+                    <font size = 3 style="color: rgba(0, 43, 91)" >방식이 있어요.</font><br>
+                </div>
+            {%endif%}
+            {%if income_client== "아니요"%}
+                <div class="col" align="center" >
+                    <font size = 3 style="color: rgba(0, 43, 91)" >안녕하세요! 🌟 정기적금 상품은 정해진 기간동안 일정 금액을 꾸준히 납부하며 이자수익을 받을 수 있는 저축 방식으로</font><br>
+                    <font size = 3 style="color: rgba(234, 84, 87)" ><b>‘목돈 만들기’</b></font>
+                    <font size = 3 style="color: rgba(0, 43, 91)" >에 적합합니다. </font>
+                    <font size = 3 style="color: rgba(0, 43, 91)" >고객님에게는 자유롭게 납부하는</font> 
+                    <font size = 3 style="color: rgba(234, 84, 87)" >‘자유’</font>
+                    <font size = 3 style="color: rgba(0, 43, 91)" >방식이 더 알맞아요.</font><br>
+                </div>
+            {%endif%}
+        </div><br>
+
+        <div class="rounded-box" >
+            <div class="v-line"></div>
+            <div class="v-line2"></div>
+            <div class = "v-line-s"></div>
+            <div class = "v-line-s1"></div>
+            <div class = "v-line-s2"></div>
+            <div class = "row">
+                <div class = "col" align = "center" style="line-height:100%" > 
+                    <br>
+                    <font size = 3 style="color: rgba(255, 0, 0)"  ><b>보장금리:</b></font>    
+                    <font size = 3 style="color: rgba(0, 43, 91)"  ><b>사용자님이 선택하신 우대사항에 따라 적용된 금리입니다.</b> </font>
+                </div>
+            </div>
+            <div class = "row">
+                <div class = "col-sm">
+                    <div class = "row" >
+                        <div class = "col-sm-4" align = "center" style="line-height:100%">
+                            <br>
+                            {%if df_s[0][0] == "한국투자저축은행"%}
+                                <img src= {{df_s[0][7]}} alt="Image 1" class="img-fluid" width="100">
+                            {%else%}
+                                <img src= {{df_s[0][7]}} alt="Image 1" class="img-fluid" width="40">
+                            {%endif%}
+                            <br>
+                            <font size = 2 style="color: rgba(0, 43, 91)"  >{{df_s[0][0]}}</font>   
+                        </div>
+                        <div class = "col-sm-8" align = "center"  style="line-height:150%"><br>
+                            <!-- {% if df_s[0][1]|length < 12 %}
+                            <br>
+                            {%endif%} -->
+                            <font size = 4 style="color: rgba(0, 43, 91)"  >{{df_s[0][1]}}</font>   
+                        </div>
+                    </div> 
+                    <div  style="line-height:180%"> <br></div>  
+                    <div class = "row">
+                        <div class = "col-sm" align = "center">
+                            <font size = 5 style="color: rgba(0, 43, 91)"  >{{df_s[0][3]}}</font>
+                        </div>
+                        <div class = "col-sm" align = "center">
+                            <font size = 5 style="color: rgba(255, 0, 0)"  ><b>{{df_s[0][4]}}%</b></font>
+                        </div>
+                    </div>  
+                    <div  style="line-height:120%"> <br></div>  
+                    <div class = "row">
+                        <div class = "col-sm" align = "center">
+                            <font size = 4 style="color: rgba(0, 43, 91)"  >기본금리</font>
+                        </div>
+                        <div class = "col-sm" align = "center">
+                            <font size = 4 style="color: rgba(0, 43, 91)"  >보장금리</font>
+                        </div>
+                    </div>    
+                    <div  style="line-height:140%"> <br><br></div>  
+                    <div class = "row">
+                        <div class = "col-sm-8" >
+                            <div class="rounded-box-big" >
+                                    <div class="rounded-box-small_s" align = "center" style="line-height:80%" > <br>
+                                        <font size = 3 style="color: rgba(255, 255, 255)"  >적립방법</font>
+                                    </div>
+                                    <div class="rounded-box-small2_s" align = "center" style="line-height:80%" > <br>
+                                        <font size = 3 style="color: rgba(0, 43, 91)"  >{{df_s[0][2]}}</font>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class = "col-sm-4" align = "center"  > 
+                            <div class="rounded-box-more" align = "center" style="line-height:40%" >
+                                <br>
+                                <a href={{df_s[0][5]}} target="_blank"><font size = 2 style="color: rgba(255, 255, 255)"  >더알아보기</font></a>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class = "prefer_box" align = "center">
+                        <div class = "prefer_box_name">해당 우대 사항</div>
+                        <div class = "row" align = "left">
+                            <p>
+                                {%for s in df_s[0][-1].split("\n")%}
+                                    {% if s == "-" %}
+                                        <font size = "2">&nbsp;해당사항 없음</font><br>
+                                        {% break %}
+                                    {%endif%}
+                                    {% if s != "" %}
+                                        <font size = "2">&nbsp;{{s}}</font><br>
+                                    {%endif%}
+                                    
+                                {%endfor%}
+                            </p>
+
+                        </div>
+                    </div> 
+                </div>
+                <div class = "col-sm">
+                    <div class = "row" >
+                        <div class = "col-sm-4" align = "center" style="line-height:100%">
+                            <br>
+                            <img src= {{df_s[1][7]}} alt="Image 1" class="img-fluid" width="40">
+                            <br>
+                            <font size = 2 style="color: rgba(0, 43, 91)"  >{{df_s[1][0]}}</font>   
+                        </div>
+                        <div class = "col-sm-8" align = "center"  style="line-height:150%"><br>
+                            <!-- {% if df_s[1][1]|length < 12 %}
+                            <br>
+                            {%endif%} -->
+                            <font size = 4 style="color: rgba(0, 43, 91)"  >{{df_s[1][1]}}</font>   
+                        </div>
+                    </div> 
+                    <div  style="line-height:180%"> <br></div>  
+                    <div class = "row">
+                        <div class = "col-sm" align = "center">
+                            <font size = 5 style="color: rgba(0, 43, 91)"  >{{df_s[1][3]}}</font>
+                        </div>
+                        <div class = "col-sm" align = "center">
+                            <font size = 5 style="color: rgba(255, 0, 0)"  ><b>{{df_s[1][4]}}%</b></font>
+                        </div>
+                    </div>  
+                    <div  style="line-height:120%"> <br></div>  
+                    <div class = "row">
+                        <div class = "col-sm" align = "center">
+                            <font size = 4 style="color: rgba(0, 43, 91)"  >기본금리</font>
+                        </div>
+                        <div class = "col-sm" align = "center">
+                            <font size = 4 style="color: rgba(0, 43, 91)"  >보장금리</font>
+                        </div>
+                    </div>    
+                    <div  style="line-height:140%"> <br><br></div>  
+                    <div class = "row">
+                        <div class = "col-sm-8" >
+                            <div class="rounded-box-big" >
+                                    <div class="rounded-box-small_s" align = "center" style="line-height:80%" > <br>
+                                        <font size = 3 style="color: rgba(255, 255, 255)"  >적립방법</font>
+                                    </div>
+                                    <div class="rounded-box-small2_s" align = "center" style="line-height:80%" > <br>
+                                        <font size = 3 style="color: rgba(0, 43, 91)"  >{{df_s[1][2]}}</font>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class = "col-sm-4" align = "center"  > 
+                            <div class="rounded-box-more" align = "center" style="line-height:40%" >
+                                <br>
+                                <a href={{df_s[1][5]}} target="_blank"><font size = 2 style="color: rgba(255, 255, 255)"  >더알아보기</font></a>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class = "prefer_box" align = "center">
+                        <div class = "prefer_box_name">해당 우대 사항</div>
+                        <div class = "row" align = "left">
+                            <p>
+                                {%for s in df_s[1][-1].split("\n")%}
+                                    {% if s == "-" %}
+                                        <font size = "2">&nbsp;해당사항 없음</font><br>
+                                        {% break %}
+                                    {%endif%}
+                                    {% if s != "" %}
+                                        <font size = "2">&nbsp;{{s}}</font><br>
+                                    {%endif%}
+                                    
+                                {%endfor%}
+                            </p>
+
+                        </div>
+                    </div> 
+                </div>
+                <div class = "col-sm">
+                    <div class = "row" >
+                        <div class = "col-sm-4" align = "center" style="line-height:100%">
+                            <br>
+                            <img src= {{df_s[2][7]}} alt="Image 1" class="img-fluid" width="40">
+                            <br>
+                            <font size = 2 style="color: rgba(0, 43, 91)"  >{{df_s[2][0]}}</font>   
+                        </div>
+                        <div class = "col-sm-8" align = "center"  style="line-height:150%"><br>
+                            <!-- {% if df_s[2][1]|length < 20 %}
+                            <br>
+                            {%endif%} -->
+                            <font size = 4 style="color: rgba(0, 43, 91)"  >{{df_s[2][1]}}</font>   
+                        </div>
+                    </div> 
+                    <div  style="line-height:180%"> <br></div>  
+                    <div class = "row">
+                        <div class = "col-sm" align = "center">
+                            <font size = 5 style="color: rgba(0, 43, 91)"  >{{df_s[2][3]}}</font>
+                        </div>
+                        <div class = "col-sm" align = "center">
+                            <font size = 5 style="color: rgba(255, 0, 0)"  ><b>{{df_s[2][4]}}%</b></font>
+                        </div>
+                    </div>  
+                    <div  style="line-height:120%"> <br></div>  
+                    <div class = "row">
+                        <div class = "col-sm" align = "center">
+                            <font size = 4 style="color: rgba(0, 43, 91)"  >기본금리</font>
+                        </div>
+                        <div class = "col-sm" align = "center">
+                            <font size = 4 style="color: rgba(0, 43, 91)"  >보장금리</font>
+                        </div>
+                    </div>    
+                    <div  style="line-height:140%"> <br><br></div>  
+                    <div class = "row">
+                        <div class = "col-sm-8" >
+                            <div class="rounded-box-big" >
+                                    <div class="rounded-box-small_s" align = "center" style="line-height:80%" > <br>
+                                        <font size = 3 style="color: rgba(255, 255, 255)"  >적립방법</font>
+                                    </div>
+                                    <div class="rounded-box-small2_s" align = "center" style="line-height:80%" > <br>
+                                        <font size = 3 style="color: rgba(0, 43, 91)"  >{{df_s[2][2]}}</font>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class = "col-sm-4" align = "center"  > 
+                            <div class="rounded-box-more" align = "center" style="line-height:40%" >
+                                <br>
+                                <a href={{df_s[2][5]}} target="_blank"><font size = 2 style="color: rgba(255, 255, 255)"  >더알아보기</font></a>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class = "prefer_box" align = "center">
+                        <div class = "prefer_box_name">해당 우대 사항</div>
+                        <div class = "row" align = "left">
+                            <p>
+                                {%for s in df_s[2][-1].split("\n")%}
+                                    {% if s == "-" %}
+                                        <font size = "2">&nbsp;해당사항 없음</font><br>
+                                        {% break %}
+                                    {%endif%}
+                                    {% if s != "" %}
+                                        <font size = "2">&nbsp;{{s}}</font><br>
+                                    {%endif%}
+                                    
+                                {%endfor%}
+                            </p>
+
+                        </div>
+                    </div> 
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col" align="center" >
+                <a href="http://127.0.0.1:3600/insurance">
+                <img src="/static/image/실손의료보험.png" alt="Image 1" class="img-fluid" width="80">
+                <br>
+                    <font size = 5 style = "color : rgba(0, 43, 91);">실손의료보험</font>
+                <p style="font-size: 100%; font-weight:200; color: rgba(0, 43, 91); ">아프니까 청춘일까?<br>
+                    불확실한 위험에 미리 대비해요!</p>
+                </a>
+            </div>
+            <div class="col" align="center">
+                <a href = "http://127.0.0.1:3600/deposit_insurance">
+                <img src="/static/image/저축성보험.png" alt="Image 2" class="img-fluid" width="80">
+                <br>
+                    <font size = 5 style = "color : rgba(0, 43, 91);">저축성보험</font>
+                <p style="font-size: 100%; font-weight:200; color: rgba(0, 43, 91); ">장기 저축에 위험 대비까지!<br>
+                    비과세 혜택까지 얻어봐요.</p>
+                </a> 
+            </div>
+            <div class="col" align="center">
+                <a href="http://127.0.0.1:3600/formResult_Housing">
+                <img src="/static/image/주택청약.png" alt="Image 3" class="img-fluid" width="80">
+                <br>
+                    <font size = 5 style = "color : rgba(0, 43, 91);">주택청약</font>
+                <p style="font-size: 100%; font-weight:200; color: rgba(0, 43, 91); ">내집 마련의 첫 걸음!<br>
+                    이율과 청약 가산점까지 얻어봐요.</p>  
+                </a>
+            </div>
+            <div class="col" align="center">
+                <a href="http://127.0.0.1:3600/formResult_mz">
+                <img src="/static/image/청년도약계좌.png" alt="Image 3" class="img-fluid" width="80">
+                <br>
+                    <font size = 5 style = "color : rgba(0, 43, 91);">청년도약계좌</font>
+                <p style="font-size: 100%; font-weight:200; color: rgba(0, 43, 91); ">
+                    만 34세 미만 청년들 주목!<br>높은 이율이 보장되요. 
+                </p>
+            </a>
+            </div>
+        </div>
+    </div>
+    <br>
+    
+</body>
+</html>
+</body>
+</html> 

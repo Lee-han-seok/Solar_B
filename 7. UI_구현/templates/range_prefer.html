@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .rounded-box {
+                position: relative;
+                width: 600px;
+                height: 300px;
+                background-color:  rgba(253, 253, 253);
+                border-radius: 20px;
+                border: 0.5px solid rgba(0, 43, 91, 0.2);
+                z-index: 1;
+                vertical-align: middle;
+                display: inline-block;
+                margin-left: 32%;
+            }
+
+        .rounded-box-purpose {
+            position: relative;
+            width: 80px;
+            height:35px;
+            background-color:  rgba(255, 255, 255);
+            border: 0.5px solid rgba(0, 43, 91, 0.2);
+            z-index: 1;
+            vertical-align: middle;
+            display: inline-block; 
+             margin-right: 40px;
+             margin-left: 40px;
+        }
+
+    .rounded-box-btn {
+            position: absolute;
+            bottom: -15%; 
+            right: 90px; /* 원하는 위치의 왼쪽 좌표를 설정하세요. */
+            width: 200px;
+            height: 60px;
+            /* left: 30%; */
+            background-color: rgba(234, 84, 87);
+            border-radius: 20px;
+            border: 0.5px solid rgba(234, 84, 87);
+            z-index: 1;
+        }
+        .transparent-button {
+            background-color: transparent; /* 배경색을 투명하게 설정 */
+            border: 1px solid transparent; /* 테두리를 투명하게 설정 */
+            color: #000; /* 텍스트 색상을 원하는 색상으로 설정 */
+            padding: 10px;
+            cursor: pointer; /* 커서 스타일 변경 (선택사항) */
+        }
+        .rounded-box-hide {
+            position: relative;
+            width: 1000px;
+            height: 150px;
+            background-color:  rgb(230, 235, 242);
+            z-index: 1;
+            /* vertical-align: middle; */
+            display: inline-block;
+            margin-left: 32%;
+            border-radius: 20px;
+        }
+        .rounded-box-hide2 {
+            position: relative;
+            width: 750px;
+            height: 130px;
+            background-color:  rgb(230, 235, 242);
+            z-index: 1;
+            vertical-align: middle;
+            display: inline-block;
+            margin-left:25%;
+        }
+        .text-container {
+            display: flex; /* 텍스트를 나란히 배치하기 위해 Flexbox 사용 */
+        }
+
+        .text-box {
+            margin-right: 500px; /* 각 텍스트 박스 사이의 여백 설정 */
+        }
+        .text-box2 {
+            margin-left: 120px; /* 각 텍스트 박스 사이의 여백 설정 */
+        }
+        .rounded-box-purpose-small2 {
+            position: relative;
+            width: 200px;
+            height:40px;
+            background-color: rgb(253, 253, 253);
+            /* border: 0.5px solid rgba(0, 43, 91, 0.2); */
+            z-index: 1;
+            vertical-align: middle;
+            /* display: inline-block;  */
+            margin-top: 2.5%;
+            border-radius: 15px;
+            text-align: center; /* 텍스트를 수평으로 가운데 정렬합니다. */
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body style= "background-color: rgba(230, 235, 242)">
+    <form action = "/loding_page" method="get">
+        <div class = "container">
+            <div class = "row" align = "center">
+                <br>
+                <div class="bar">
+                <img src ="/static/image/진행바_5.png" alt="bar" class="bar" width="400">
+                </div>
+                <br><br>
+                <div class = "q1" align = "center"  style="line-height:100%">
+                    <br>
+                        <font size = 5 style="color: rgba(0, 43, 91)" ><b>원하시는 금융권의 범위를 선택해주세요</b></font>
+                </div>
+                <img src ="/static/image/점선.png" alt="dotted" class="dot" width="600"><br>
+                <img src ="/static/image/금융권설명.png" alt="dotted" class="dot" width="600">
+            </div>
+            <br>
+            <div class="rounded-box-hide2">
+                <div class="text-container">
+                    <div class="text-box2">
+                        <div class = "rounded-box-purpose-small2">
+                            <input type = "radio" name = "range" value = "일반은행"><label><b>일반은행</b></label>
+                        </div>
+                    </div>
+                    <div class="text-box2">
+                        <div class = "rounded-box-purpose-small2">
+                            <input type = "radio" name = "range" value = "일반은행+저축은행"><label><b>일반은행+저축은행</b></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class = "row" align = "center">
+                <div class = "q1" align = "center"  style="line-height:100%">
+                    <br>
+                        <font size = 5 style="color: rgba(0, 43, 91)" ><b>적용가능한 우대사항을 선택해주세요 (중복가능)</b></font><br><br>
+                        <font size = 3 style="color: rgba(0, 43, 91)" >👉상품 가입시 우대금리를 위해 고려할 수 있는 옵션들을 모두 선택해주세요!👈</font>
+                </div>
+                <img src ="/static/image/점선.png" alt="dotted" class="dot" width="600">
+            </div>
+
+            <div class="rounded-box-hide">
+                <div class="text-container">
+                    <div class="text-box">
+                        <input type = "checkbox" name = "prefer" value = "급여이체"><label><b>급여이체</b></label>
+                        <input type = "checkbox" name = "prefer" value = "마케팅동의"><label><b>마케팅동의</b></label>
+                        <input type = "checkbox" name = "prefer" value = "자동이체"><label><b>자동이체</b></label>
+                        <input type = "checkbox" name = "prefer" value = "해당사항없음"><label><b>해당사항없음</b></label>
+                    </div>
+                </div>
+
+                <br><br>
+                <div class="text-container">
+                    <div class="text-box">  
+                        <input type = "checkbox" name = "prefer" value = "카드실적"><label><b>카드실적</b></label>
+                        <input type = "checkbox" name = "prefer" value = "최초거래"><label><b>최초거래</b></label>
+                        <input type = "checkbox" name = "prefer" value = "주택청약"><label><b>주택청약 보유</b></label>
+                
+                    </div>
+                </div>   
+                <br><br>
+                <div class="text-container">
+                    <div class="text-box">
+                        <input type = "checkbox" name = "prefer" value = "비대면"><label><b>비대면 가입</b></label>
+                        <input type = "checkbox" name = "prefer" value = "영업점"><label><b>영업점 가입</b></label>
+                        <input type = "checkbox" name = "prefer" value = "해당은행"><label><b>해당은행 연관 추가옵션</b></label>
+                    </div>
+                </div> 
+            </div> 
+
+
+        </div>
+        <br>
+        <div class="col" align="center" >
+            <button class = "transparent-button">
+                <div class="rounded-box-btn"  style="line-height:70%">
+                        <br><br><br>
+                        <font size = 4.7 style="color: rgba(255, 255, 255)">다음</font>
+                </div>
+        </button>
+        </div>
+
+    </form>
+</body>
+</html>

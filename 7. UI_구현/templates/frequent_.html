@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .rounded-box {
+                position: relative;
+                width: 600px;
+                height: 50px;
+                background-color:  rgba(0, 43, 91);
+                border-radius: 20px;
+                border: 0.5px solid rgba(0, 43, 91, 0.2);
+                z-index: 1;
+                vertical-align: middle;
+        }
+        .rounded-box-purpose {
+            position: relative;
+            width: 80px;
+            height:35px;
+            background-color:  rgba(255, 255, 255);
+            border: 0.5px solid rgba(0, 43, 91, 0.2);
+            z-index: 1;
+            vertical-align: middle;
+            display: inline-block; 
+             margin-right: 40px;
+             margin-left: 40px;
+        }
+        .rounded-box-btn {
+            position: absolute;
+            bottom: 10%; 
+            right: 90px; /* 원하는 위치의 왼쪽 좌표를 설정하세요. */
+            width: 200px;
+            height: 60px;
+            /* left: 30%; */
+            background-color: rgba(234, 84, 87);
+            border-radius: 20px;
+            border: 0.5px solid rgba(234, 84, 87);
+            z-index: 1;
+        }
+        .transparent-button {
+            background-color: transparent; /* 배경색을 투명하게 설정 */
+            border: 1px solid transparent; /* 테두리를 투명하게 설정 */
+            color: #000; /* 텍스트 색상을 원하는 색상으로 설정 */
+            padding: 10px;
+            cursor: pointer; /* 커서 스타일 변경 (선택사항) */
+        }
+        .rounded-box-hide {
+            position: relative;
+            width: 750px;
+            height: 100px;
+            background-color:  rgb(230, 235, 242);
+            z-index: 1;
+            vertical-align: middle;
+            display: inline-block;
+            margin-left: 25%;
+        }
+        .rounded-box-hide2 {
+            position: relative;
+            width: 750px;
+            height: 100px;
+            background-color:  rgb(230, 235, 242);
+            z-index: 1;
+            vertical-align: middle;
+            display: inline-block;
+            margin-left:35%;
+        }
+        .text-container {
+            display: flex; /* 텍스트를 나란히 배치하기 위해 Flexbox 사용 */
+        }
+
+        .text-box {
+            margin-right: 60px; /* 각 텍스트 박스 사이의 여백 설정 */
+        }
+        .rounded-box-purpose-small2 {
+            position: relative;
+            width: 200px;
+            height:40px;
+            background-color: rgb(253, 253, 253);
+            /* border: 0.5px solid rgba(0, 43, 91, 0.2); */
+            z-index: 1;
+            vertical-align: middle;
+            /* display: inline-block;  */
+            margin-top: 2.5%;
+            border-radius: 15px;
+            text-align: center; /* 텍스트를 수평으로 가운데 정렬합니다. */
+            line-height: 40px;
+        }
+    </style>
+</head>
+
+<body style= "background-color: rgba(230, 235, 242)">
+    <form action = "/income_short" method="get">
+        <div class = "container">
+            <div class = "row" align = "center">
+                <br>
+                <div class="bar">
+                <img src ="/static/image/진행바_3.png" alt="bar" class="bar" width="400">
+                </div>
+                <br><br>
+                <div class = "q1" align = "center"  style="line-height:100%">
+                    <br>
+                        <font size = 5 style="color: rgba(0, 43, 91)" ><b>저축에 있어서 입출금 기능이 필요하신가요?</b></font>
+                </div>
+                <img src ="/static/image/점선.png" alt="dotted" class="dot" width="600">
+            </div>
+            <br>
+
+            <div class="rounded-box-hide2"
+                <div class="text-container">
+                    <div class="text-box">
+                        <img src ="/static/image/입출금기능아이콘.png" alt="bar" class="bar" width="20">
+                        <font size = 3 style="color: rgba(0, 43, 91); vertical-align: middle;" ><b>하루만 예치해도 이자를 주는 수시입출금통장이 있어요!</b></font>      
+                    </div>
+                </div>
+            </div>
+
+            <div class="rounded-box-hide2">
+                <div class="text-container">
+                    <div class="text-box">
+                        <div class = "rounded-box-purpose-small2">
+                            <input type = "radio" name = "frequent" value = "예"><label><b>예</b></label>
+                        </div>
+                    </div>
+                    <div class="text-box">
+                        <div class = "rounded-box-purpose-small2">
+                            <input type = "radio" name = "frequent" value = "아니요"><label><b>아니요</b></label>                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <div class="col" align="center" >
+            <button class = "transparent-button">
+                <div class="rounded-box-btn"  style="line-height:70%">
+                        <br><br><br>
+                        <font size = 4.7 style="color: rgba(255, 255, 255)">다음</font>
+                </div>
+        </button>
+        </div>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+        
+        .centered-image {
+            display: flex;
+            justify-content: center; /* 가로 중앙 정렬 */
+            align-items: flex-start; /* 이미지의 상단을 컨테이너 상단에 맞춤 */
+            height: 100vh; /* 뷰포트의 전체 높이 */
+        }
+        .centered-image img {
+            max-width: 75%; /* 이미지의 최대 너비를 50%로 제한 */
+            height: auto; /* 이미지 높이를 자동으로 조절 */
+        }
+        tr:first-child {
+            position: sticky;
+            top: 0;
+            background-color: #f2f2f2;
+        }
+        .section1 {
+            height: 91vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-items: center;
+        }
+        .section2 {
+            height: 10vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-items: center;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            height: 1000px; /* 스크롤 가능한 높이를 설정 (임시로 설정한 값) */
+        }
+
+        .rounded-box {
+            position: relative;
+            width: 650px;
+            height: 270px;
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            z-index: 1;
+            margin-left: 4%;
+        }
+
+        .transparent-button {
+            background-color: rgba(234, 84, 87);
+            width: 400px;
+            height: 100px;
+            border: 1px solid transparent; /* 테두리를 투명하게 설정 */
+            color: #000; /* 텍스트 색상을 원하는 색상으로 설정 */
+            padding: 10px;
+            cursor: pointer; /* 커서 스타일 변경 (선택사항) */
+            border-radius: 20px;
+    }
+    .toolbar {
+            display: flex;
+            justify-content: flex-start;;
+            align-items: center;
+            background-color: white;
+            color: white;
+            padding: 10px 20px;
+        }
+        .toolbar .col + .col {
+        margin-left: 160px; /* 왼쪽 요소로부터의 간격을 조정합니다 */
+        }
+        /* .toolbar .col:last-child {
+        margin-right: 0; 
+        } */
+        .toolbar a:hover {
+            text-decoration: underline;
+        }
+        .toolbar .logo {
+            font-size: 24px;
+            margin-right: auto;
+        }
+    a {
+            text-decoration: none; /* 밑줄 제거 */
+            cursor: pointer; /* 선택 시 마우스 커서를 포인터로 변경 (선택 사항) */
+        }
+        #dropdownMenu {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        #dropdownMenu a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        #dropdownMenu a:hover {
+            background-color: #ddd;
+        }
+
+</style>
+
+<body style= "background-color: rgba(225, 233, 245)">
+    <div class = "container">
+        <div class = "toolbar" align = "center">
+            <div class = "col">
+                <a href ="/"><img src= "/static/image/SOLAR-B 로고.png" alt="Search" width="120"></a>
+            </div>
+            <div class = "col">
+                <a href="#section2" style="color: rgba(0, 43, 91);">소개</a>
+            </div>
+            <div class = "col">
+                <a href="/auto_recommend"> <font style = "color : rgba(0, 43, 91);">SOLAR-B 추천상품</font></a>
+            </div>
+            <div class = "col">
+                <a href="/form"> <font style = "color : rgba(0, 43, 91);">30초 안에 맞춤상품 찾기</font></a>
+            </div>
+            <div class="col">
+                <a href="#" onclick="toggleDropdown()" style="color: rgba(0, 43, 91);">더보기</a>
+                <div id="dropdownMenu">
+                    <a href="/mz_detail">청년도약계좌</a>
+                    <a href="/deposit_insurance">저축성보험</a>
+                    <a href="/insurance">4세대 실손의료보험</a>
+                    <a href="/formResult_Housing">주택청약</a>
+                </div>
+            </div>
+            <div class = "col">
+                <a href="mz_detail"><img src= "/static/image/로그인.png" alt="Search" width="100"></a>
+            </div>
+        </div>
+        <!-- <section class = "section_top"id="sectiontop" style= "background-color: rgba(230, 235, 242)"> 
+
+            <a href ="/"><img src= "/static/image/SOLAR-B 로고.png" alt="Search" width="120"></a>
+                
+        </section> -->
+        <div class = "section1" id="section1" style= "background-color: rgba(230, 235, 242)">
+            <div class = "row">
+                <div class = "col" align = "center">
+                    <img src = "/static/image/SOLAR-B 로고 메인.png" width="270">
+                    <br> 
+                    <p style="font-size: 280%; font-weight:900; color: rgba(0, 43, 91); ">
+                        <span ><img src= "/static/image/별.png" alt="Search" width="45"></span>
+                        2030 청년들의 <span ><img src= "/static/image/별.png" alt="Search" width="45"></span>
+                        <br>현명한 저축생활을 위한 서비스
+                    </p>
+                    <p style="font-size: 100%; font-weight:600; color: rgba(0, 43, 91); ">
+                        고위험 상품에 집중된 청년들의 금융생활<br>
+                        하지만, 미래를 위한 꾸준한 저축과 금융관리는 필수적입니다<br>
+                        청년들이 보다 건강하고, 자기 주도적인 금융 생활로 미래에 대비할 수 있도록 SOLAR-B가 도와드릴께요~<br>
+                        안정적이고 꾸준한 저축으로 당신의 꿈을 현실로 만들어보세요!
+                    </p>
+                    
+                </div>
+            </div>
+            </div>
+            
+            
+        </div>
+        <section id = "section2" style = "background-color:  #FDFDFF;">
+            <div class = "row">
+                <p style="font-size: 400%; color :  rgba(234, 84, 87);"><b>WHY SOLAR-B?</b></p>
+            </div>
+        </section>
+
+        <section id = "section3" style = "background-color: #FDFDFF;">
+            <img src = "/static/image/point1.png" width="500">  
+            
+            <div class = "rounded-box">
+                <p style = 'font-size: 60px; color : rgba(17,128,241)'><b>POINT 0</b></p>
+                <p style = 'font-size : 25px; font-weight:900'>
+                    👨‍🚒 시켜줘 머니소방관.. 소중한 자산을 안정적으로 <br> 늘릴 방법을 찾으신다면,
+                    <span style = "color : rgba(17, 128, 241);">SOLAR-B</span>가 정답입니다!
+                </p>
+                <p>단기간의 고수익을 추구하는 것도 좋지만, 장기적인 관점에서 
+                    <br><span style = "color : rgba(17, 128, 241);">균형 잡힌 재테크 전략</span>이 필요해요. <br>
+                    SOLAR-B는 여러분의 재정 목표를 달성할 수 있는 다양한 방법을 제공합니다.</p>
+            </div>     
+                   
+        </section>
+
+        <section id = "section4" style = "background-color: #FDFDFF;">
+               
+            <div class = "rounded-box">
+                <p style = 'font-size: 60px; color : rgba(17,128,241)'><b>POINT 1</b></p>
+                <p style = 'font-size : 25px; font-weight:900'>
+                    🙋‍♂️ 바쁘다 바빠 현대사회! 이걸 언제 누가 다 비교해!?<br> <span style = "color : rgba(17, 128, 241);">SOLAR-B</span>가 대신 할게요.
+                </p>
+                
+                <p>
+                    정보의 바다속에서 해매고🏊‍♂️ 있는 여러분들을 위해 <br>
+                    SOLAR-B가 직접 비교해서 <span style = "color : rgba(17, 128, 241);">3개의 상품만</span>을 추천해드려요.
+                </p>
+            </div>   
+            <img src = "/static/image/point2.png" width="500">          
+        </section>
+
+        <section id = "section5" style = "background-color: #FDFDFF;">
+            <img src = "/static/image/point3.png" width="500">  
+            
+            <div class = "rounded-box">
+                <p style = 'font-size: 60px; color : rgba(17,128,241)'><b>POINT 2</b></p>
+                <p style = 'font-size : 25px; font-weight:900'>
+                    🐸 우물 안 개구리! 벗어나고 싶지 않으신가요? <br>
+                    일반은행부터 저축은행까지 <span style = "color : rgba(17, 128, 241);">한번에 비교</span> 가능해요.
+                </p>
+                <p>
+                    SOLAR_B는 1금융권 일반은행은 물론 저축은행까지 포함한 총<br> <span style = "color : rgba(17, 128, 241);">97개 은행사</span>의 상품을 분석하여 최적의 상품을 선별해드립니다.
+                </p>
+            </div>            
+        </section>
+        
+        <section id = "section6" style = "background-color: #FDFDFF;">
+            <div class = "rounded-box">
+                <p style = 'font-size: 60px; color : rgba(17,128,241)'><b>POINT 3</b></p>
+                <p style = 'font-size : 25px; font-weight:900'>
+                    🤔 저축은행이 낯설어 걱정되시나요? 걱정 멈춰!<br>🚫 돌다리도 두드려보고 건너실게요~!
+                </p>
+                <p>우리는 정교한 <span style = "color : rgba(17, 128, 241);">안정성 등급 평가 방식</span>을 통해 안전한 저축은행을 엄선하고, <br>
+                    이를 1금융권 상품과 함께 비교하여 제공합니다.</p>
+            </div>      
+            <img src = "/static/image/point4.png" width="500">        
+        </section>
+
+        <section id = "section7" style = "background-color: #FDFDFF;">   
+            <img src = "/static/image/point5.png" width="500">  
+            <div class = "rounded-box">
+                <p style = 'font-size: 60px; color : rgba(17,128,241)'><b>POINT 4</b></p>
+                <p style = 'font-size : 25px; font-weight:900'>
+                    🤹‍♂️ <span style = "color : rgba(17, 128, 241);">고객 선호 기반 추천</span> 알고리즘으로 <br>최적의 맞춤 금융 상품을 추천 받아보세요!
+
+                </p>
+                <p>SOLAR-B는 <span style = "color : rgba(17, 128, 241);">서비스 이용자들의 선호</span>와 <br> 각 상품의 특성을 고려해 자체 개발한 알고리즘을 이용해요.
+                <br> 바쁜 현대인들을 위해 맞춤 상품을 3개씩 추천해드려요.
+                </p>
+            </div>    
+        </section>
+
+        <section id = "section8" style = "background-color: #FDFDFF;">   
+            <div class = "rounded-box">
+                <p style = 'font-size: 60px; color : rgba(17,128,241)'><b>POINT 5</b></p>
+                <p style = 'font-size : 25px; font-weight:900'>
+                    🔮 보인다 보여.. 미래가보여! SOLAR-B의 AI 모델은 <span style = "color : rgba(17, 128, 241);">
+                        <br>3월 이후 피벗(금리하락 전환)</span>을 예측하고 있어요.
+
+                </p>
+                <p>금리 인하 전에 높은 이율을 확보하기 위해 지금 가입하는 것이 유리합니다. <br>
+                    높은 금리를 확보하고 경기 흐름을 지켜보면서 대응하실 수 있도록 <span style = "color : rgba(17, 128, 241);">‘1년 기간’ <br>
+                    적금, 예금, 파킹통장 상품</span>을 추천드립니다.
+                </p>
+            </div>   
+            <img src = "/static/image/point6.png" width="500">  
+        </section>
+        <section id = "section9" style = "background-color:  #FDFDFF;">
+            <div class = "row">
+                <p style="font-size: 400%; color :  rgba(234, 84, 87);"><b>WITH SOLAR-B!</b></p>
+            </div>
+        </section>
+        <div style = "background-color: #FDFDFF;">
+            <br><br><br><br>
+        </div>
+        
+        <div style = "background-color: #FDFDFF; display: flex; justify-content: space-around;" align = "center">
+
+            <form action = "/auto_recommend" method="get">
+                <button class = "transparent-button"  style="line-height:40%">
+                    <font size = 5 style="color: rgba(255, 255, 255)">자동화 추천상품 보기</font>    
+                </button>  
+            </form>
+            <form action = "/form" method="get">    
+                <button class = "transparent-button"  style="line-height:40%">
+                    <font size = 5 style="color: rgba(255, 255, 255)">30초안에 맞춤 상품 찾기</font>    
+                </button>  
+            </form>
+        </div>
+
+        <div style = "background-color: #FDFDFF; display: flex; justify-content: space-around;" align = "center">
+            <div class = "col">
+                <p style = 'font-size: 20px; color : rgba(0, 43, 91)'>
+                    SOLAR-B 픽! 현시점 기준  <br> 추천 상품들을 확인해 보세요!
+                </p>
+            </div>
+            <div class = "col">
+                <p style = 'font-size: 20px; color : rgba(0, 43, 91)'>
+                    간단한 정보 입력으로 30초 만에 <br> 취향저격, 개인 맞춤 상품을 <br> 추천받아 보세요
+                </p>
+            </div>
+        </div>
+        <div style = "background-color: #FDFDFF;"><br></div>
+    </div>
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdownMenu");
+            dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+        }
+        // 외부 클릭을 감지하고 드롭다운 메뉴를 닫는 코드
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "block") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
