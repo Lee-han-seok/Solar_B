@@ -3,24 +3,27 @@
 ## 🔍 개요
 
   - 주제 : 청년들의 저축생활을 위한 개인 맞춤 금융 상품 추천 서비스 기획, 구현
-  - 배경 : 
   - 주최기관 : SK플래닛
   - Summary : 경제지표 분석, 금융 상품 데이터 수집, 추천 로직 구성, 웹 기획/구현 등
   - 활용 Tool
-    - 데이터 수집, 분석, 모델링 : Python
-    - 프롬프트엔지니어링 : ChatGPT
-    - 웹 : JavaScript, HTML, ...
-    - DB : MySQL (MariaDB, HeidiSQL)
-    - UI : Moqups, PowerPoint
+
+    ![image](https://github.com/user-attachments/assets/0a7266ff-a745-4eee-bc2f-71970f2cb6bd)
+
   - [⭐**최종보고서**⭐](https://github.com/Lee-han-seok/Solar_B/blob/main/SOLAR_B-%EC%B5%9C%EC%A2%85%EB%B0%9C%ED%91%9C.pdf)
 <br/>
 
 ## 🚀 프로젝트 수행 과정
 
-  - 프로젝트 수행 과정
-  
+  - 진행 과정
+
+  ![image](https://github.com/user-attachments/assets/956de0c9-1915-420a-bc7a-9de29e78a1b9)
+
   - 프로젝트 아키텍처
+
+  ![image](https://github.com/user-attachments/assets/0728f034-722e-4f65-8aab-4efd996930e1)
+
   
+
 
 <br/>
 
